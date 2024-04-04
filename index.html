@@ -1,0 +1,320 @@
+﻿﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>一带一路可视化平台</title>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/echarts.min.js"></script>
+    <script type="text/javascript" src="js/china.js"></script>
+    <script type="text/javascript" src="js/map.js"></script>
+    <script type="text/javascript" src="js/js.js"></script>
+    <script type="text/javascript" src="js/Bubble.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="head clearfix">
+      <h1 class="pulll_left">一带一路可视化平台</h1>
+      <div class="menu menu2 pulll_left">
+        <ul>
+          <li>
+            <a href="https://www.yidaiyilu.gov.cn/">官网数据</a>
+          </li>
+          <li>
+            <a href="https://www.yidaiyilu.gov.cn/special/xjpyydyl">新闻资讯</a>
+          </li>
+          <li>
+            <a href="https://www.imsilkroad.com/login">官方数据</a>
+          </li>
+          <li>
+            <a href="https://ydyl.cei.cn/jsps/Default">贸易国家</a>
+          </li>
+          <li>
+            <a href="http://politics.people.com.cn/n1/2023/1011/c1001-40092604.html">回望十年</a>
+          </li>
+          <li>
+            <a href="https://www.crexpress.cn/#/home">中欧班列</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="time" id="showTime">2024/3/25 10:00:00</div>
+      <script>
+        var t = null;
+        t = setTimeout(time, 1000); 
+        function time() {
+          clearTimeout(t); 
+          dt = new Date();
+          var y = dt.getFullYear();
+          var mt = dt.getMonth() + 1;
+          var day = dt.getDate();
+          var h = dt.getHours(); 
+          var m = dt.getMinutes(); 
+          var s = dt.getSeconds();
+          document.getElementById("showTime").innerHTML =
+            y + "/" + mt + "/" + day + " " + h + ":" + m + ":" + s + "";
+          t = setTimeout(time, 1000); 
+        }
+      </script>
+    </div>
+    <div class="mainbox">
+      <ul class="clearfix nav1">
+        <li style="width: 22%">
+          <div class="box">
+            <div class="tit">一带一路沿线国家与中国进出口总额（亿美元）</div>
+            <div class="boxnav" style="height: 200px">
+              <table
+                class="table1"
+                width="100%"
+                border="0"
+                cellspacing="0"
+                cellpadding="0"
+              >
+                <tbody>
+                  <tr>
+                    <th>国家</th>
+                    <th>2022年</th>
+                    <th>2023年</th>
+                    <th>增长率</th>
+                  </tr>
+                  <tr>
+                    <td>越南</td>
+                    <td><span class="text-w">2318.18</span></td>
+                    <td><span class="text-b">2297.93</span></td>
+                    <td><div class="text-d">↓0.9%</div></td>
+                  </tr>
+                  <tr>
+                    <td>俄罗斯</td>
+                    <td><span class="text-w">1900.20</span></td>
+                    <td><span class="text-b">2401.12</span></td>
+                    <td><div class="text-s">↑26.4%</div></td>
+                  </tr>
+                  <tr>
+                    <td>南非</td>
+                    <td><span class="text-w">564.3</span></td>
+                    <td><span class="text-b">556.2</span></td>
+                    <td><div class="text-d">↓1.4%</div></td>
+                  </tr>
+                  <tr>
+                    <td>尼加拉瓜</td>
+                    <td><span class="text-w">7.53</span></td>
+                    <td><span class="text-b">8.53</span></td>
+                    <td><div class="text-s">↑13.3%</div></td>
+                  </tr>
+                  <tr>
+                    <td>阿根廷</td>
+                    <td><span class="text-w">213.2</span></td>
+                    <td><span class="text-b">174.0</span></td>
+                    <td><div class="text-d">↓18.4%</div></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="box">
+            <div class="tit">2022年不同性质企业进出口情况（百分比）</div>
+            <div class="boxnav" style="height: 250px">
+              <div class="" style="height: 190px" id="echart1"></div>
+              <div class="leidanav">
+                <ul class="clearfix">
+                  <li>
+                    <span>私营企业</span>
+                    <p>48%</p>
+                  </li>
+                  <li>
+                    <span>外商投资企业</span>
+                    <p>30%</p>
+                  </li>
+                  <li>
+                    <span>国有企业</span>
+                    <p>14%</p>
+                  </li>
+                  <li>
+                    <span>上市企业</span>
+                    <p>7%</p>
+                  </li>
+                  <li>
+                    <span>其他</span>
+                    <p>1%</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li style="width: 56%">
+          <div class="box">
+            <div class="boxnav mapc" style="height: 550px; position: relative">
+
+              <div>
+                <div class="box">
+
+                  <div ></div>
+                  <div>
+                    <ul class="clearfix">
+
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="map" id="map">
+                <body>
+                  <img id="myImage" src="images/1.png" alt="Description of the image">
+                  <link rel="stylesheet" href="styles.css">
+                  <div id="worldMap" style="width: 43vw; height: 57vh;"></div>
+                  <script src="js/echarts.min.js"></script>
+                  <script type="module" src="js/index.js"></script>
+                  <title>Two Lines of Text</title>
+              </body>
+              </div>
+            
+            </div>
+          </div>
+        </li>
+        <li style="width: 22%">
+          <div class="box">
+            <div class="tit">一带一路沿线国家GDP TOP8——2023年</div>
+            <div class="boxnav" id="echart3" style="height: 200px"></div>
+          </div>
+          <div class="box">
+            <div class="tit">一带一路实时热词榜</div>
+            <div class="boxnav" style="height: 250px">
+              <div
+                style="height: 200px; float: left; width: 40%; padding: 0 5px"
+              >
+                <div class="tit02 text-b">热门话题榜</div>
+                <div class="huati">
+                  <ul>
+                    <li>1.行动计划 <span class="text-s">↑5682</span></li>
+                    <li>2.一带一路 <span class="text-s">↑8421</span></li>
+                    <li>3.外商投资 <span class="text-d">↓1278</span></li>
+                    <li>4.融资指导原则 <span class="text-d">↓2843</span></li>
+                    <li>5.发展机制 <span class="text-d">↓1156</span></li>
+                  </ul>
+                </div>
+              </div>
+
+              <div style="height: 200px; float: left; width: 60%">
+                <div class="text-b tit02" style="text-align: center">
+                  热门关键词 — 标签云
+                </div>
+                <div class="tagcloud">
+                  <!-- bo大小 co颜色 -->
+                  <a
+                    class="b01 co01"
+                    href="https://www.yidaiyilu.gov.cn/news"
+                    >促发展</a
+                  >
+                  <a
+                    class="b02 co02"
+                    href="https://www.yidaiyilu.gov.cn/"
+                    >一带一路</a
+                  >
+                  <a
+                    class="b03 co05"
+                    href="https://www.yidaiyilu.gov.cn/project"
+                    >实施方案</a
+                  >
+                  <a
+                    class="b04 co02"
+                    href="https://www.yidaiyilu.gov.cn/service"
+                    >合作共赢</a
+                  >
+                  <a
+                    class="b03 co05"
+                    href="https://www.yidaiyilu.gov.cn/dataChart"
+                    >对外贸易</a
+                  >
+                </div>
+                <script type="text/javascript">
+                  /*3D标签云*/
+                  tagcloud({
+                    selector: ".tagcloud", //元素选择器
+                    fontsize: 6, //基本字体大小, 单位px
+                    radius: 40, //滚动半径, 单位px 页面宽度和高度的五分之一
+                    mspeed: "slow", //滚动最大速度, 取值: slow, normal(默认), fast
+                    ispeed: "slow", //滚动初速度, 取值: slow, normal(默认), fast
+                    direction: 0, //初始滚动方向, 取值角度(顺时针360): 0对应top, 90对应left, 135对应right-bottom(默认)...
+                    keep: false, //鼠标移出组件后是否继续随鼠标滚动, 取值: false, true(默认) 对应 减速至初速度滚动, 随鼠标滚动
+                  });
+                </script>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <div class="box" style="padding: 20px 0">
+        <ul class="clearfix nav2">
+          <li style="width: 25%">
+            <div class="tit01">2023年一带一路沿线国家与中国进出口总额占比（万亿美元）</div>
+            <div class="" id="">
+              <div
+                style="float: left; width: 50%; height: 170px"
+                id="fb01"
+              ></div>
+              <div
+                style="float: left; width: 50%; height: 170px"
+                id="fb02"
+              ></div>
+            </div>
+            <div class="leidanav leidanav2">
+              <ul class="clearfix">
+                <li>
+                  <span>2023年总贸易额</span>
+                  <p>19.47万亿</p>
+                </li>
+                <li>
+                  <span>2022年总贸易额</span>
+                  <p>13.83万亿</p>
+                </li>
+                <li>
+                  <span>2021年总贸易额</span>
+                  <p>11.60万亿</p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li style="width: 25%">
+            <div class="tit01">一带一路大数据指数</div>
+            <div class="ftechart" id="echart4"></div>
+          </li>
+          <li style="width: 25%">
+            <div class="tit01">一带一路已签订国家数量与建交国占比</div>
+            <div
+              class=""
+              style="height: 100%; display: flex; align-items: center"
+            >
+              <div
+                style="float: left; width: 50%; height: 100%"
+                class="wancheng"
+              >
+                <div>
+                  <span>已签订国家数</span>
+                  <h3>152<i>国家</i></h3>
+                </div>
+                <div class="yuan">
+                  <span>83%</span>
+                </div>
+              </div>
+              <div style="float: left; width: 50%; height: 50%" id="myd1"></div>
+            </div>
+          </li>
+          <li style="width: 25%">
+            <div class="tit01">签订共建—— 一带一路文件国家分布占比——2023年</div>
+            <div class="" id="">
+              <div
+                style="float: left; width: 50%; height: 200px"
+                id="fb03"
+              ></div>
+              <div
+                style="float: left; width: 50%; height: 200px"
+                id="fb04"
+              ></div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
